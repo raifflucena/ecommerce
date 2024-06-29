@@ -75,9 +75,7 @@ export const Card: React.FC<{
         )}
       </div>
       <div className={classes.content}>
-        {titleToUse && (
-          <h4 className={classes.title}>{titleToUse}</h4>
-        )}
+        {titleToUse && <h4 className={classes.title}>{titleToUse}</h4>}
         {description && (
           <div className={classes.body}>
             {description && <p className={classes.description}>{sanitizedDescription}</p>}

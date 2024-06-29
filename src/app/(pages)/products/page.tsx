@@ -18,9 +18,9 @@ const Products = async () => {
 
   try {
     page = await fetchDoc<Page>({
-        collection: 'pages',
-        slug: 'products',
-        draft: isDraftMode,
+      collection: 'pages',
+      slug: 'products',
+      draft: isDraftMode,
     })
 
     categories = await fetchDocs<Category>('categories')
