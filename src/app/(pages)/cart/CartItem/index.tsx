@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { Media } from '../../../_components/Media';
-import { Price } from '../../../_components/Price';
-import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton';
+import { Media } from '../../../_components/Media'
+import { Price } from '../../../_components/Price'
+import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
 
-import classes from './index.module.scss';
+import classes from './index.module.scss'
 
 const CartItem = ({ product, title, metaImage, qty, addItemToCart }) => {
   const [quantity, setQuantity] = useState(qty)

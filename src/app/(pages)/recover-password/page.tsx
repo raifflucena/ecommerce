@@ -1,14 +1,14 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from 'react'
+import { Metadata } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { Gutter } from '../../_components/Gutter';
-import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph';
-import { RecoverPasswordForm } from './RecoverPasswordForm';
-import { RenderParams } from '../../_components/RenderParams';
+import { Gutter } from '../../_components/Gutter'
+import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
+import { RecoverPasswordForm } from './RecoverPasswordForm'
+import { RenderParams } from '../../_components/RenderParams'
 
-import classes from './index.module.scss';
+import classes from './index.module.scss'
 
 export default async function RecoverPassword() {
   return (

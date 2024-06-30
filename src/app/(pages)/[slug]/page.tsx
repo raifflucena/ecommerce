@@ -1,23 +1,23 @@
-import React from 'react';
-import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
-import { notFound } from 'next/navigation';
+import React from 'react'
+import { Metadata } from 'next'
+import { draftMode } from 'next/headers'
+import { notFound } from 'next/navigation'
 
-import type { Category, Page as PageType } from '../../../payload/payload-types';
-import { staticHome } from '../../../payload/seed/home-static';
-import { fetchDoc } from '../../_api/fetchDoc';
-import { fetchDocs } from '../../_api/fetchDocs';
-import { Blocks } from '../../_components/Blocks';
-import { Hero } from '../../_components/Hero';
-import { generateMeta } from '../../_utilities/generateMeta';
-import { Gutter } from '../../_components/Gutter';
+import type { Category, Page as PageType } from '../../../payload/payload-types'
+import { staticHome } from '../../../payload/seed/home-static'
+import { fetchDoc } from '../../_api/fetchDoc'
+import { fetchDocs } from '../../_api/fetchDocs'
+import { Blocks } from '../../_components/Blocks'
+import { Hero } from '../../_components/Hero'
+import { generateMeta } from '../../_utilities/generateMeta'
+import { Gutter } from '../../_components/Gutter'
 
-import Categories from '../../_components/Categories';
-import Promotion from '../../_components/Promotion';
+import Categories from '../../_components/Categories'
+import Promotion from '../../_components/Promotion'
 
-import classes from './index.module.scss';
+import classes from './index.module.scss'
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'
 
 export default async function PageFunction({ params: { slug = 'home' } }) {
   const { isEnabled: isDraftMode } = draftMode()

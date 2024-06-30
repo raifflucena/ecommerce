@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
+import React from 'react'
+import Link from 'next/link'
 
-import { Category } from '../../../../payload/payload-types';
-import { useFilter } from '../../../_providers/Filter';
+import { Category } from '../../../../payload/payload-types'
+import { useFilter } from '../../../_providers/Filter'
 
-import classes from './index.module.scss';
+import classes from './index.module.scss'
 
 type Media = {
   id: string
