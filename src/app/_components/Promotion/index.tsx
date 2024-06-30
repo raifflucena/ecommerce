@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useState } from 'react'
 
 import classes from './index.module.scss'
@@ -29,12 +28,12 @@ const Promotion = () => {
 
       if (timeDifference === 0) {
         clearInterval(timerInterval)
-        // You can add code here to handle what happens when the target date is reached
+        // You can add code here to handle what happens when the target date is reached.
       }
     }, 1000)
 
     return () => {
-      clearInterval(timerInterval) // Cleanup the interval when the component unmounts
+      clearInterval(timerInterval) // Cleanup the interval when the component unmounts.
     }
   }, [])
 
