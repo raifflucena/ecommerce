@@ -7,7 +7,7 @@ export const getMeUser = async (args?: {
   nullUserRedirect?: string
   validUserRedirect?: string
 }): Promise<{
-  user: User
+  user: User | null
   token: string
 }> => {
   const { nullUserRedirect, validUserRedirect } = args || {}
@@ -25,11 +25,7 @@ export const getMeUser = async (args?: {
       throw new Error(`HTTP error! status: ${meUserReq.status}`)
     }
 
-    const {
-      user,
-    }: {
-      user: User
-    } = await meUserReq.json()
+    const { user }: { user: User } = await meUserReq.json()
 
     if (validUserRedirect && user) {
       redirect(validUserRedirect)
@@ -43,7 +39,7 @@ export const getMeUser = async (args?: {
       user,
       token,
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Failed to fetch user data:', error)
     if (nullUserRedirect) {
       redirect(nullUserRedirect)
