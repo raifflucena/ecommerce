@@ -22,7 +22,7 @@ export const getMeUser = async (args?: {
     })
 
     if (!meUserReq.ok) {
-      throw new Error(`HTTP error! status: ${meUserReq.status}`);
+      throw new Error(`HTTP error! status: ${meUserReq.status}`)
     }
 
     const {
@@ -44,7 +44,7 @@ export const getMeUser = async (args?: {
       token,
     }
   } catch (error) {
-    console.error('Failed to fetch user data:', error);
+    console.error('Failed to fetch user data:', error)
     if (nullUserRedirect) {
       redirect(nullUserRedirect)
     }
