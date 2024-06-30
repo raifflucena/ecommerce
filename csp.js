@@ -23,6 +23,7 @@ const policies = {
     'https://checkout.stripe.com',
     'https://api.stripe.com',
     'https://maps.googleapis.com',
+    'https://ecommerce-ten-ashen-72.vercel.app', // Change this to your domain
   ],
 }
 
