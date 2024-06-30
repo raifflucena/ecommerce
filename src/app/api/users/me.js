@@ -1,31 +1,31 @@
-import Cors from 'cors';
+import Cors from 'cors'
 
 // Initializing the cors middleware
 const cors = Cors({
   methods: ['GET', 'HEAD'],
   origin: [
     'https://ecommerce-r55ju8dxb-raiffs-projects.vercel.app',
-    'https://ecommerce-ten-ashen-72.vercel.app'
+    'https://ecommerce-ten-ashen-72.vercel.app',
   ],
-});
+})
 
 // Helper method to wait for a middleware to execute before continuing
 // And to throw an error when an error happens in a middleware
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
+    fn(req, res, result => {
       if (result instanceof Error) {
-        return reject(result);
+        return reject(result)
       }
-      return resolve(result);
-    });
-  });
+      return resolve(result)
+    })
+  })
 }
 
 export default async function handler(req, res) {
   // Run the middleware
-  await runMiddleware(req, res, cors);
+  await runMiddleware(req, res, cors)
 
   // Return JSON response
-  res.status(200).json({ user: 'me' });
+  res.status(200).json({ user: 'me' })
 }
