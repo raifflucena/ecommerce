@@ -14,28 +14,43 @@ export const getMeUser = async (args?: {
   const cookieStore = cookies()
   const token = cookieStore.get('payload-token')?.value
 
-  const meUserReq = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
-    headers: {
-      Authorization: `JWT ${token}`,
-    },
-  })
+  try {
+    const meUserReq = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    })
 
-  const {
-    user,
-  }: {
-    user: User
-  } = await meUserReq.json()
+    if (!meUserReq.ok) {
+      throw new Error(`HTTP error! status: ${meUserReq.status}`);
+    }
 
-  if (validUserRedirect && meUserReq.ok && user) {
-    redirect(validUserRedirect)
-  }
+    const {
+      user,
+    }: {
+      user: User
+    } = await meUserReq.json()
 
-  if (nullUserRedirect && (!meUserReq.ok || !user)) {
-    redirect(nullUserRedirect)
-  }
+    if (validUserRedirect && user) {
+      redirect(validUserRedirect)
+    }
 
-  return {
-    user,
-    token,
+    if (nullUserRedirect && !user) {
+      redirect(nullUserRedirect)
+    }
+
+    return {
+      user,
+      token,
+    }
+  } catch (error) {
+    console.error('Failed to fetch user data:', error);
+    if (nullUserRedirect) {
+      redirect(nullUserRedirect)
+    }
+    return {
+      user: null,
+      token: '',
+    }
   }
 }
