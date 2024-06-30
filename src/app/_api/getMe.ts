@@ -29,15 +29,15 @@ export const getMe = async (args?: {
   })
 
   // Capture a resposta como texto
-  const text = await meUserReq.text();
-  console.log('API Response:', text); // Logar a resposta
+  const text = await meUserReq.text()
+  console.log('API Response:', text) // Logar a resposta
 
   // Tentar fazer o parse do JSON
   const {
     user,
   }: {
     user: User
-  } = JSON.parse(text);
+  } = JSON.parse(text)
 
   if (userRedirect && meUserReq.ok && user) {
     redirect(userRedirect)
